@@ -50,5 +50,18 @@ Notice we connect to the host `postgres` just like we did with pgAdmin and Metab
 ## 4. Verification
 Run the cells in the Jupyter notebook (Shift + Enter). You should see the SQL query execute, load into a Pandas DataFrame, and finally render a bar chart of Total Revenue by Category!
 
-## 5. Summary
+## 5. Troubleshooting
+
+> [!WARNING]
+> **Local vs. Docker Execution**
+> Be careful about *where* you are running your notebook! If you open a notebook locally in VS Code using your computer's Python installation, the host `@postgres` will not work. You must change the connection string to use `@localhost:5432`. You should ideally run notebooks directly in the Jupyter web interface (`http://localhost:8888`) so the code executes inside the Docker network.
+
+> [!TIP]
+> **Missing Dependencies**
+> If you encounter an error like `ModuleNotFoundError: No module named 'sqlalchemy'` inside the Jupyter web interface, it means the Docker image used a stale cache and didn't install the `requirements.txt` correctly. You can fix this instantly by adding a new cell at the top of your notebook and running:
+> ```python
+> !pip install sqlalchemy psycopg2-binary
+> ```
+
+## 6. Summary
 You have now added an advanced analytics environment to your stack. The ecosystem is fully featured. In the next section, we'll review the complete stack and wrap everything up.

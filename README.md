@@ -64,6 +64,9 @@ docker compose up -d
 ```
 Docker will download the necessary images, build the custom Jupyter image, and spin up all 4 containers in the background.
 
+> [!WARNING]
+> **Docker API Error:** If you see an error saying `failed to connect to the docker API`, it means Docker Desktop is not running. Open the Docker Desktop application on your machine, wait for it to fully start, and then run the command again.
+
 ### 3. Access the Services
 Once running, you can access the tools through your web browser:
 

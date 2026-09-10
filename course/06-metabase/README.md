@@ -40,6 +40,10 @@ Like pgAdmin, Metabase runs on the `analytics-net` network, meaning it can reach
    - **Database name**: `analytics_db`
    - **Username**: `analytics_user`
    - **Password**: `your_secure_password_here` (from your `.env` file).
+
+> [!TIP]
+> **Why is the host `postgres`?** Since Metabase and PostgreSQL are running in the same Docker network, Metabase connects to the database using its container name (`postgres`) rather than `localhost`. Also, `5432` is not a placeholder—it is the actual official port that the database is listening on!
+
 5. Click **Next** and finish the setup.
 
 ## 4. Building the Dashboard (Hands-on)
